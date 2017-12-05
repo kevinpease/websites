@@ -1,0 +1,501 @@
+/*
+ * Cleanup provided by: https://dirtymarkup.com/css/
+ * Another option: http://www.codebeautifier.com/
+ *
+ *
+ *
+ * Fun Colors::
+ * 		#303030 - a dark grey
+ * 		#E8E8E8 - a light grey
+ * 		#707070 / #B8B8B8- a darker light grey
+ *
+ */
+
+/*
+ * Need to look at:
+ * 		https://www.smashingmagazine.com/2011/11/how-to-set-up-a-print-style-sheet/
+ * 		https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/
+ * 		http://www.creativebloq.com/responsive-web-design/make-your-website-printable-css-3132929
+ * 		for page breaks look here::: http://edutechwiki.unige.ch/en/CSS_for_print_tutorial
+ * 		http://browserhacks.com/#hack-f4ade0540d8e891e8190065f75acb186
+ */
+ /* print style declarations go here */
+@page {
+	size: auto;   /* auto is the initial value */
+	margin: 0;  /* this affects the margin in the printer settings */
+}
+/* Adds page numbers to the pages */
+/*@page:left{
+  @bottom-left {
+    content: "Page " counter(page) " of " counter(pages);
+  }
+}*/
+@media print {
+	body {
+		background-color: #FFFFFF;
+		color: #000000;
+		line-height: 105%; /* sets the line height, this can do things like make double spacing a thing */
+		margin: 6mm;
+	}
+	.menuRow {
+		/*visibility: collapse;*/
+		display: none;
+	}
+	.printablelink {
+		visibility: collapse;
+	}
+	.no-print {
+		visibility: collapse;
+		display:none;
+	}
+	#printable_resume {
+		display: none;
+	}
+	a:visited {
+		color: #000000; /* change link to black text */
+		text-decoration: underline; /* leave a clue that it is a link */
+	}
+	a:link:after, a:visited:after { 
+		content: " [" attr(href) "] ";
+		font-size: 90%;
+	}
+	.myname {
+		font-size: 35px;
+	}
+	.contactinfo {
+		font-size: 10px;
+	}
+	/*.spacerrow {
+		
+	}*/
+	/*.company {
+	
+	}*/
+	.duration {
+		font-size: 10px;
+	}
+	.jobtitle {
+		font-size: 10px;
+	}
+	.jobduties {
+		font-size: 10px;
+	}
+}
+/* style declarations used everywhere go here */
+@media all {
+	* {
+		font-size: 12px;
+		font-family: "Helvetica Neue", Helvetica, Verdana, Arial, Sans-Serif;
+	}
+	.resume {
+		border-collapse: collapse;
+		page-break-after:auto;
+		/*white-space: nowrap;*/
+		table-layout: fixed;
+		width: 100%;
+	}
+	.myname {
+		display: table-cell;
+		font-weight: bold;
+		text-align: center;
+		color: #000000;
+		white-space: nowrap;
+		page-break-inside:avoid;
+		page-break-after:auto;
+		width: 100%;
+		/* W3C */
+		/* column-span: 2; */
+		column-span: all;
+		/* Safari & Chrome */
+		-webkit-column-span: 2;
+		/* Firefox */
+		-moz-column-span: 2;
+		/* Internet Explorer */
+		-ms-column-span: 2;
+		/* Opera */
+		-o-column-span: 2;
+	}
+	.contactinfo {
+		display: table-cell;
+		text-align: center;
+		color: #000000;
+		white-space: nowrap;
+		page-break-inside:avoid;
+		page-break-after:auto;
+		width: 100%;
+		/* W3C */
+		/* column-span: 2; */
+		column-span: all;
+		/* Safari & Chrome */
+		-webkit-column-span: 2;
+		/* Firefox */
+		-moz-column-span: 2;
+		/* Internet Explorer */
+		-ms-column-span: 2;
+		/* Opera */
+		-o-column-span: 2;
+	}
+	.spacercol {
+		display: table-cell;
+		white-space: nowrap;
+		page-break-inside:avoid;
+		page-break-after:auto;
+		width: 100%;
+	}
+	.company {
+		display: table-cell;
+		font-weight: bold;
+		text-align: left;
+		color: #000000;
+		white-space: nowrap;
+		page-break-inside:avoid;
+		page-break-after:auto;
+		width: 75%;
+		padding-left: 1%;
+	}
+	.duration {
+		display: table-cell;
+		font-style: italic;
+		text-align: right;
+		color: #000000;
+		white-space: nowrap;
+		page-break-inside:avoid;
+		page-break-after:auto;
+		width: 20%;
+		padding-right: .5%;
+	}
+	.jobtitle {
+		display: table-cell;
+		font-weight: bold;
+		text-align: left;
+		color: #000000;
+		white-space: nowrap;
+		page-break-inside:avoid;
+		page-break-after:auto;
+		width: 100%;
+		padding-left: 1%;
+		/* W3C */
+		/* column-span: 2; */
+		column-span: all;
+		/* Safari & Chrome */
+		-webkit-column-span: 2;
+		/* Firefox */
+		-moz-column-span: 2;
+		/* Internet Explorer */
+		-ms-column-span: 2;
+		/* Opera */
+		-o-column-span: 2;
+	}
+	.jobduties {
+		display: table-cell;
+		font-weight: normal;
+		text-align: left;
+		page-break-inside:avoid;
+		page-break-after:auto;
+		color: #000000;
+		padding-left: 5%;
+		width: 100%;
+		/*white-space: nowrap;*/
+		/* W3C */
+		/* column-span: 2; */
+		column-span: all;
+		/* Safari & Chrome */
+		-webkit-column-span: 2;
+		/* Firefox */
+		-moz-column-span: 2;
+		/* Internet Explorer */
+		-ms-column-span: 2;
+		/* Opera */
+		-o-column-span: 2;
+	}
+}
+/* screen style declarations go here */
+@media screen {
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	body {
+		font-size: 10px;
+		font-family: "Helvetica Neue", Helvetica, Verdana, Arial, Sans-Serif;
+		background-color: #FBFCFC;
+	}
+	.mainbody {
+		padding-top: 1em;
+		float: left;
+		display: block;
+		width: 100%;
+	}
+	.mainbody:last-child {
+	    margin-right: 0;
+	}
+	.nonnestedmainbody {
+		padding-top: 1em;
+		padding-left: 1em;
+		float: left;
+		display: block;
+		width: 90%;
+	}
+	.nonnestedmainbody h1 {
+		font-size: 16px;
+	}
+	.sidenav {
+		float: left;
+		display: block;
+		margin-left: 1%;
+		margin-right: 2%;
+		width: 10%;
+		white-space: nowrap;
+	}
+	.sidenav:last-child {
+		margin-right: 0;
+	}
+	.sidenav h3 {
+		font-size: 1.5rem;
+	}
+	.sidenav a {
+		display: block;
+		color: #333333;
+	}
+	.sidenav p {
+		font-style: italic;
+	}
+	.maincontent {
+		float: left;
+		display: block;
+		margin-right: 2%;
+		width: 70%;
+		margin-right: 0;
+		padding-left: 1em;
+	}
+	.maincontent:last-child {
+		margin-right: 0;
+	}
+	.indent {
+		padding-left: 1em;
+	}
+	a {
+		text-decoration: none;
+		color: #4F4F97;
+	}
+	a:hover {
+		color: #000000;
+	}
+	ul {
+		margin-left: 10px;
+	}
+	img {
+		border: 0;
+	}
+	.wrap {
+		margin: 20px auto;
+		width: 500px;
+		padding: 10px;
+		background-color: #fff;
+		border: 1px solid #000000;
+	}
+	.header {
+		height: 100px;
+		background-color: #4F4F97;
+		text-align: center;
+		color: #FFFFFF;
+		padding: 0;
+		background-image: url(../images/branding_bg.png);
+	}
+	.header_txt {
+		position: relative;
+		left: 340px;
+		top: 40px;
+		font-size: 20px;
+		margin: 0;
+		padding: 0;
+	}
+	.headerrow {
+		font-weight: bold;
+		text-align: left;
+		color: #000000;
+		white-space: nowrap;
+		font-size: 20px;
+		padding-left: .5%;
+		width: 100%;
+	}
+	.debugSection {
+		color: #000000;
+		white-space: nowrap;
+		font-style: italic;
+	}
+	.header h1 {
+		padding-left: 10px;
+		padding-top: 12px;
+		font-size: 25px;
+		color: #31799F;
+	}
+	.header h1 a {
+		font-size: 25px;
+		color: #31799F;
+		text-decoration: none;
+	}
+	.header h2 {
+		padding-left: 10px;
+		padding-top: 0;
+		font-size: 14px;
+		color: #fff;
+	}
+	.header h3 {
+		padding-left: 10px;
+		padding-top: 0;
+		font-size: 14px;
+		color: #fff;
+	}
+	.menu {
+		text-align: left;
+		margin-bottom: 10px;
+		font-size: .75em;
+		padding: 2px;
+		font-weight: bold;
+		background: #FAFAFA;
+		width: 100%;
+		border-collapse: collapse;
+	}
+	.menu td {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 2px;
+		padding-right: 2px;
+		white-space: nowrap;
+	}
+	/*.menuCell {
+		
+	}*/
+	/*.blankCell {
+		
+	}*/
+	.menuCell_Switch {
+		border-right: 0;
+		width: 50%;
+		text-align: right;
+	}
+	.menuCell_home {
+		width: 50%;
+	}
+	.menu a {
+		color: #0044FD;
+		text-decoration: none;
+		padding-top: 8px;
+		padding-bottom: 4px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.menu a:hover {
+		color: #262626;
+		border-bottom: 2px solid #0044FD;
+	}
+	.content {
+		text-align: left;
+		margin-top: 5px;
+		padding: 10px;
+		font-size: 11px;
+		font-weight: normal;
+	}
+	.content h1 {
+		text-align: center;
+	}
+	.content h2 {
+		font-size: 15px;
+		color: #444;
+		padding: 0 0 5px 0;
+	}
+	.footer {
+		margin-top: 25px;
+		clear: both;
+		text-align: center;
+		color: #000;
+		font-size: 10px;
+		font-weight: normal;
+		background-color: #FFF;
+		padding: 2px;
+	}
+	.meta {
+		padding-bottom: 2px;
+		font-size: 10px;
+		color: #999999;
+		font-weight: normal;
+	}
+	.bottom {
+		font-size: 11px;
+		padding: 10px 0 0 0;
+		font-weight: normal;
+	}
+	.bottomleft {
+		width: 45%;
+		float: left;
+		background: #fff;
+		padding-bottom: 10px;
+		padding-left: 5px;
+		font-weight: normal;
+	}
+	.bottomright {
+		width: 45%;
+		float: right;
+		background: #fff;
+		padding-bottom: 10px;
+		padding-right: 5px;
+		font-weight: normal;
+	}
+	.divider {
+		text-align: center;
+		font-size: 11px;
+		padding: 2px;
+		font-weight: bold;
+	}
+	.terms_table {
+		border: 0;
+		border-spacing: 0;
+		border-collapse: collapse;
+	}
+	.terms_table_header {
+		padding: 10px;
+		vertical-align: top;
+		width: 209px;
+	}
+	.terms_table_follow{
+		padding: 10px;
+		vertical-align: top;
+		width: 352px;
+	}
+	.printablelink {
+		font-weight: normal;
+		text-decoration: underline;
+		text-align: right;
+		color: #0044FD;
+		white-space: nowrap;
+		font-size: 8px;
+		padding-right: .5%;
+		width: 100%;
+	}
+	.resume {
+		border: 5px;
+		width: 100%;
+	}
+	.myname {
+		font-size: 40px;
+	}
+	/*.contactinfo {
+	
+	}*/
+	/*.spacercol {
+	
+	}*/
+	.company {
+		font-size: 14px;
+	}
+	/*.duration {
+		
+	}*/
+	/*.jobtitle {
+		
+	}*/
+	/*.jobduties {
+	
+	}*/
+}
